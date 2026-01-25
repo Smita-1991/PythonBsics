@@ -6,4 +6,4 @@ print("{},{},{}".format(1,"Hello",4))
 #### concatenate the same datatype in one print method
 print("Class"+"A")
 print("Class"+str(5))
-print("{},{}".format("class",5))
+print("{},{}".format("class" ,5))
