@@ -25,7 +25,7 @@
 ####Read the file and store all the lines into the list
 ####Reverse the list
 ####Write the list back to the file
-with open('text.txt','r') as file:
+with open('text.txt', 'r') as file:
 
     lines= file.readlines()
     # reversed_lines = []
@@ -34,6 +34,6 @@ with open('text.txt','r') as file:
     #     reversed_lines.append(lines[lenLines-1])
     #     lenLines = lenLines - 1
 
-    with open('text.txt','w') as file:
+    with open('text.txt', 'w') as file:
         for line in reversed(lines):  ### reversed(lines) is used to reverse the list
             file.write(line)
