@@ -5,11 +5,13 @@ class APIUtils:
 
     authorisationToken=""
 
-    def getAuthorisationToken(self,playwright:Playwright):
+    def getAuthorisationToken(self,playwright:Playwright,userCredential):
+        user_Email=userCredential["userName"]
+        user_Password=userCredential["password"]
         apiRequestContext=playwright.request.new_context(base_url="https://rahulshettyacademy.com")
         loginResponse=apiRequestContext.post("/api/ecom/auth/login",
-                               data={"userEmail": "autismita5@gmail.com",
-                                   "userPassword": "Smita@1234"}
+                               data={"userEmail": user_Email,
+                                   "userPassword": user_Password},
                                )
 
         assert loginResponse.ok
@@ -17,9 +19,9 @@ class APIUtils:
         responseBody=loginResponse.json()
         return responseBody["token"]
 
-    def createOrder(self,playwright:Playwright):
+    def createOrder(self,playwright:Playwright,userCredential):
 
-        token=self.getAuthorisationToken(playwright)
+        token=self.getAuthorisationToken(playwright,userCredential)
         apiRequestContext=playwright.request.new_context(base_url="https://rahulshettyacademy.com")
         response=apiRequestContext.post("/api/ecom/order/create-order",
                               data={"orders":[{"country":"India","productOrderedId":"6960eac0c941646b7a8b3e68"}]},
