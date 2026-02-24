@@ -1,12 +1,11 @@
 import time
 
 import playwright
-from playwright.async_api import Playwright
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page, expect, Playwright
 
 
 ##playwright is the fixture already defined in the package pytest-playwright
-def test_openBrowser(playwright):
+def test_openBrowser(playwright:Playwright):
     browser=playwright.chromium.launch(headless=False)
     browser.new_context()   # Same like you are opening new in-cognito window
     page=browser.new_page()
@@ -35,12 +34,12 @@ def testCoreLocators2(page:Page):
 def test_fireFoxBrowser(playwright:Playwright):
     browser=playwright.firefox.launch(headless=False)
     context=browser.new_context()
-    page=browser.new_page()
+    page=context.new_page()
+
     page.goto("https://rahulshettyacademy.com/loginpagePractise/")
-    page.get_by_label("Username:").fill("rahulshettyacademy")
-    page.get_by_label("Password:").fill("Learning@830$3mK2")
+    page.get_by_label("Username:").fill("rahulshetty@gmail.com")
+    page.get_by_label("Password:").fill("Iamking@000")
     page.get_by_role("combobox").select_option("teach")
     page.locator("#terms").click()
     page.get_by_role("link", name="terms and conditions").click()
     page.get_by_role("button", name="Sign In").click()
-    time.sleep(10)

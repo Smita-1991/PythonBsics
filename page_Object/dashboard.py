@@ -1,9 +1,7 @@
-from playwright.sync_api import expect
-
-from PageObject.verifyOrderDetails import OrderDetails
+from page_Object.verifyOrderDetails import OrderDetails
 
 
-class Dashboard:
+class DashboardPage:
     def __init__(self,page):
         self.page=page
 

@@ -1,13 +1,22 @@
+import json
+
+import pytest
 from playwright.async_api import Playwright
 from playwright.sync_api import expect
 
 from Utils.APIBase import APIUtils
 
+##JSON file util access into the test
+with open('Data/credentials.json') as f:
+    testdata = json.load(f)
+    user_CredentialsList=testdata["userCredentials"]
 
-def test_injectSessionCookies(playwright:Playwright):
+#Achive parameterization using different datasets driving data externally from json
+@pytest.mark.parametrize('userCredential',user_CredentialsList)
+def test_injectSessionCookies(playwright:Playwright,userCredential):
 
     apiUtils=APIUtils()
-    token=apiUtils.getAuthorisationToken(playwright)
+    token=apiUtils.getAuthorisationToken(playwright,userCredential)
     browser=playwright.chromium.launch(headless=False)
     context=browser.new_context()
     page=context.new_page()

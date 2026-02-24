@@ -1,5 +1,4 @@
-from PageObject.dashboard import Dashboard
-
+from page_Object.dashboard import DashboardPage
 
 class LoginPage:
     def __init__(self, page):
@@ -12,5 +11,5 @@ class LoginPage:
         self.page.locator("#userEmail").fill(userName)
         self.page.locator("#userPassword").fill(password)
         self.page.locator("#login").click()
-        dashBoardPage=Dashboard(self.page)
+        dashBoardPage=DashboardPage(self.page)
         return dashBoardPage

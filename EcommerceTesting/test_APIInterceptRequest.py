@@ -25,5 +25,4 @@ def  testAPIIntercept(page:Page):
 
     page.get_by_role("button", name="View").nth(0).click()
 
-    time.sleep(10)
 

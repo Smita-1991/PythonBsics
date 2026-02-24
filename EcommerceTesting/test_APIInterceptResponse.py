@@ -29,4 +29,3 @@ def testAPIIntercept(page:Page):
     orderText=page.locator(".mt-4").text_content()
     print(orderText)
 
-    time.sleep(10)

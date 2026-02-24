@@ -17,7 +17,6 @@ def test_UIValidation(page:Page):
     iphoneproduct.get_by_role("button").click()
     page.get_by_text("Checkout ").click()
     page.locator(".media-heading").get_by_text("iphone X").click()
-    time.sleep(10)
 
 
 def test_childWindowHandle(page:Page):
