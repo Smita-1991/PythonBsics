@@ -7,7 +7,7 @@ from pytest_bdd import given, when, then, parsers, scenarios
 from Utils.APIBase import APIUtils
 from page_Object.login import LoginPage
 
-scenarios('Features\orderTransaction.feature')
+scenarios('Features/orderTransaction.feature')
 
 @pytest.fixture()
 def share_data():
