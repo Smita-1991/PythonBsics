@@ -27,7 +27,7 @@ def testUIWebAPI(playwright:Playwright,browserInstance, userCredential): #user_c
     loginPage=LoginPage(browserInstance)    # creating Object
 
     loginPage.navigate()
-    dashBoardPage=loginPage.loginPage(userName,password)
+    dashBoardPage=loginPage.login(userName,password)
 
     #Orders History Page -> Order is present
     apiUtils=APIUtils()
